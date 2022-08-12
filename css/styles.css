@@ -238,8 +238,7 @@ img {
   max-width: 600px;
 }
 
-.hero-btn,
-.register-form-btn {
+.primary-btn {
   font-family: inherit;
   font-weight: 700;
   font-size: 16px;
@@ -254,6 +253,7 @@ img {
   cursor: pointer;
   margin-left: auto;
   margin-right: auto;
+  min-width: 200px;
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
@@ -261,10 +261,8 @@ img {
   transition: background-color var(--main-transition);
 }
 
-.hero-btn:hover,
-.hero-btn:focus,
-.register-form-btn:hover,
-.register-form-btn:focus {
+.primary-btn:hover,
+.primary-btn:focus {
   background-color: var(--hero-btn-focus);
 }
 /* our advantages */
@@ -520,11 +518,16 @@ img {
 /* footer */
 .footer {
   padding-top: 60px;
-  padding-bottom: 54px;
+  padding-bottom: 60px;
   background-color: var(--main-bgc);
-  max-width: 1600px;
+}
+
+.footer__align:nth-child(n + 2) {
+  margin-left: 70px;
+}
+
+.footer__align:last-child {
   margin-left: auto;
-  margin-right: auto;
 }
 
 .footer-logo {
@@ -569,10 +572,6 @@ img {
   color: var(--light-txt-col);
 }
 
-.footer-social {
-  margin-left: 70px;
-}
-
 .social-title,
 .subscribe-title {
   display: block;
@@ -591,10 +590,6 @@ img {
 .footer .social-link:hover,
 .footer .social-link:focus {
   background-color: var(--accent-btn-bgc);
-}
-
-.footer-form {
-  margin-left: 93px;
 }
 
 .subscribe-wrap {
@@ -642,7 +637,8 @@ img {
   transition: border-color var(--main-transition);
 }
 
-.subscribe-input:focus-within,
+.subscribe-input:focus,
+.subscribe-input:hover,
 .subscribe-input:not(:placeholder-shown) {
   border-color: var(--light-txt-col);
 }
@@ -656,32 +652,9 @@ img {
   opacity: 1;
 }
 
-.subscribe-btn {
-  display: inline-flex;
-  align-items: center;
+.primary-btn--icon {
   gap: 8px;
   padding: 10px 28px;
-  width: 200px;
-  height: 50px;
-
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.88;
-  text-align: center;
-  letter-spacing: 0.06em;
-  color: var(--light-txt-col);
-  cursor: pointer;
-
-  background: var(--accent-btn-bgc);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border: none;
-  border-radius: 4px;
-  transition: background-color var(--main-transition);
-}
-
-.subscribe-btn:hover,
-.subscribe-btn:focus {
-  background-color: var(--hero-btn-focus);
 }
 
 .backdrop {
@@ -692,7 +665,6 @@ img {
 
   width: 100vw;
   height: 100vh;
-
   background-color: rgba(0, 0, 0, 0.2);
 
   transition: opacity var(--main-transition), visibility var(--main-transition);
@@ -774,6 +746,7 @@ img {
 .register-form-wrap {
   display: flex;
   flex-direction: column;
+  gap: 4px;
   position: relative;
   margin-bottom: 10px;
 
@@ -789,7 +762,6 @@ img {
 
 .register-form-input {
   height: 40px;
-  margin-top: 4px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   padding-left: 42px;
@@ -799,7 +771,9 @@ img {
   transition: border-color var(--main-transition);
 }
 .register-form-input:focus,
-.register-form-message:focus {
+.register-form-message:focus,
+.register-form-input:hover,
+.register-form-message:hover {
   border-color: var(--accent-btn-bgc);
 }
 .register-form-icon {
@@ -810,13 +784,13 @@ img {
   fill: var(--secondary-txt-col);
 }
 
-.register-form-input:focus + .register-form-icon {
+.register-form-input:focus + .register-form-icon,
+.register-form-input:hover + .register-form-icon {
   fill: var(--accent-btn-bgc);
 }
 
 .register-form-message {
   height: 120px;
-  margin-top: 4px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   resize: none;
@@ -840,23 +814,29 @@ img {
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
+  transform: translateY(-2px);
+  cursor: pointer;
 }
+
 .register-form-agreement-link {
   color: var(--accent-txt-col);
 }
 .register-icon {
   margin-right: 7px;
-  transform: translateY(-2px);
-  cursor: pointer;
 }
 
 .register-icon-uncheck {
   fill: var(--secondary-txt-col);
+  transition: fill var(--main-transition), opacity var(--main-transition);
+}
+
+.register-checkbox:hover + .register-icon .register-icon-uncheck,
+.register-checkbox:focus + .register-icon .register-icon-uncheck {
+  fill: var(--accent-txt-col);
 }
 
 .register-checkbox:checked + .register-icon .register-icon-uncheck {
   opacity: 0;
-  transition: opacity var(--main-transition);
 }
 
 .register-icon-checkd {
